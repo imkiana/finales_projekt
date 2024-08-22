@@ -38,7 +38,6 @@ class Fibonacci:
             })
             # plot data frame
             colors = ["firebrick" if b == 1 else "teal" for b in ausgabe]
-            print(colors)
             ax = sns.barplot(data=df, x="x", y="y", palette=colors) 
             plt.xlabel("Index ab Startzahl")
             plt.ylabel("Kumulierte Anzahl gerader Zahlen")
