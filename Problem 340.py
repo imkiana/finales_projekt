@@ -29,4 +29,4 @@ test3 = CrazyFunction()
 test3.Function(0)
 test3.S()
 
-
+#ich wüsste nicht wie ich 3 Dimensionen an Variation darstellen soll. 
