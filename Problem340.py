@@ -27,7 +27,6 @@ class CrazyFunction:
 
 #test3 = CrazyFunction(21**7, 7**21, 12**7) RecursionError: maximum recursion depth exceeded
 test3 = CrazyFunction()
-test3.Function(0)
 test3.S()
 
 #ich wüsste nicht wie ich 3 Dimensionen an Variation darstellen soll. 

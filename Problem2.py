@@ -42,7 +42,7 @@ class Fibonacci:
             plt.xlabel("Index ab Startzahl")
             plt.ylabel("Kumulierte Anzahl gerader Zahlen")
             plt.title("Verteilung der geraden Fibonacci-Zahlen")
-            ticks = range(0, len(ausgabe), math.ceil(len(ausgabe)/40))
+            ticks = range(0, len(ausgabe), math.ceil(len(ausgabe)/20))
             ax.set_xticks(ticks)
             plt.show()
             
