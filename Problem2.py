@@ -18,6 +18,7 @@ class Fibonacci:
         self.startzahl = startzahl
     
     def fun(self, plotten = True):
+        '''Zählt alle geraden Fibonacci Zahlen von Fibonacci Zahl n = startzahl bis maximal'''
         fi = round((1.6180339887**(self.startzahl+1)-(1.6180339887)**-(self.startzahl+1))/np.sqrt(5))
         ausgabe = list()
         fibefore = round((1.6180339887**(self.startzahl)-(1.6180339887)**-(self.startzahl))/np.sqrt(5))

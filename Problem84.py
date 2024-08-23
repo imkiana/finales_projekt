@@ -21,6 +21,7 @@ class Monopoly:
         
         
     def fun(self, n=100_000, plotten = True):
+        '''Simuliert ein Monopolyspiel mit Karten unter der verwendung eines dice_dn seitigen Würfels umd die WSK des Besuchs von Feldern zu erhalten.'''
         feld = 1
         ausgabe = list()
         for i in range(1,n):

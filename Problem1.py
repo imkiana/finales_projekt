@@ -9,6 +9,7 @@ import numpy as np
 
 
 def f(n):
+    '''Summiert alle Faktoren von 3 und 5 von 0 bis n'''
     ausgabe = []
     for i in range(0,n-int(n/abs(n)),int(n/abs(n))): # numbers BELOW n
        ausgabe.append([b if b % 3 == 0 else b if b % 5 == 0 else 0 for b in [i+int(n/abs(n))]])

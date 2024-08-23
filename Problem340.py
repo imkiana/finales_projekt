@@ -13,12 +13,14 @@ class CrazyFunction:
         self.c = c
 
     def Function(self, n):
+        '''Basisfunktion der Crazy Function'''
         if n > self.b:
             return n - self.c
         else:
             return self.Function(self.a + self.Function(self.a + self.Function(self.a + self.Function(self.a + n))))
 
     def S(self):
+        '''Summiert die Basisfunktion von n=0 bis b'''
         ausgabe = 0
         for i in range(0, self.b):
             ausgabe += self.Function(i)

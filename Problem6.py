@@ -13,6 +13,7 @@ import matplotlib.pyplot as plt
 
 
 def f(n = 100, plotten = True):
+    '''Berechnet die Differenz der Summe der Quadrate der Zahl n und dem Quadrat der Summe und Plottet dies von 1 bis n'''
     plot = []
     for j in range(1,n+1):
         a=list(range(j+1))

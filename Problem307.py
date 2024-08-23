@@ -16,6 +16,7 @@ class Chips:
         self.n=n
     
     def fun(self, it = 1000):
+        '''Simuliert die WSK für drei oder mehr der k Defekte, welche zufällig auf einen der n Chips verteilt werden.'''
         ausgabe = 0
         defekt = []
         for i in range(it):
