@@ -5,6 +5,7 @@ Created on Thu Aug 22 18:33:34 2024
 @author: Kiana Heuser
 """
 
+#Problem 340: Crazy Function 
 class CrazyFunction:
     def __init__(self, a=50, b=2000, c=40):
         self.a = a

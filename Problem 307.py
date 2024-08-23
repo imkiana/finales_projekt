@@ -6,8 +6,6 @@ Created on Thu Aug 22 19:06:23 2024
 """
 
 #Problem 307: Chip Defects
-import numpy as np
-import math
 import random as rdm #----
 
 
@@ -17,19 +15,24 @@ class Chips:
         self.k=k
         self.n=n
     
-    def fun(self, n = 10000):
+    def fun(self, n = 1000):
         ausgabe = 0
-        defekt = [0]
+        defekt = []
         for i in range(n):
-            for j in range(1,3):
-                defekt.append(rdm.choice(range(1,self.n)))
-            for k in range(1,n):
-                if defekt.count(k) >= 3: # count inperformant?
+            stop = False
+            for j in range(self.k):
+                defekt.append(rdm.choice(range(1,self.n+1)))
+            print(defekt)
+            for k in range(self.n):
+                if defekt.count(k) >= 3: # count funktioniert nicht? 
                     ausgabe = ausgabe + 1
-            defekt = [0]
+                    stop = True
+                if stop == True:
+                    break
+            defekt = []
         return(ausgabe)
         
         
         
-test4 = Chips(50,3)
+test4 = Chips()
 test4.fun()

@@ -70,20 +70,20 @@ class Monopoly:
             fig, ax = plt.subplots() #was macht das 
         
             for i in range(11):
-                rectleft = patches.Rectangle((0.16, 0.08*(i+1)), 0.06, 0.08, edgecolor='k', facecolor='white')
-                plt.text(y=.1+(0.08*i), x=.17, s=f'{values_sorted[i]}', fontsize=10, color='darkslategrey')
+                rectleft = patches.Rectangle((0.16, 0.08*(i+1)), 0.06, 0.08, edgecolor='k', facecolor='white', lw=1.3)
+                plt.text(y=.102+(0.08*i), x=.168, s=f'{values_sorted[i]}', fontsize=10, color='darkslategrey')
                 ax.add_patch(rectleft)
             for j in range(11):
-                rectright = patches.Rectangle((0.76, 0.08*(j+1)), 0.06, 0.08, edgecolor='k', facecolor='white')
-                plt.text(x=0.77, y=0.9-(0.08*(j)), s=f'{values_sorted[j+20]}', fontsize=10, color='darkslategrey')
+                rectright = patches.Rectangle((0.76, 0.08*(j+1)), 0.06, 0.08, edgecolor='k', facecolor='white', lw=1.3)
+                plt.text(x=0.768, y=0.902-(0.08*(j)), s=f'{values_sorted[j+20]}', fontsize=10, color='darkslategrey')
                 ax.add_patch(rectright)
             for k in range(9):
-                rectbot = patches.Rectangle((0.22+(0.06*k), 0.08), 0.06, 0.08, edgecolor='k', facecolor='white')
-                plt.text(x=0.71-(0.06*k), y=0.1, s=f'{values_sorted[k+31]}', fontsize=10, color='darkslategrey')
+                rectbot = patches.Rectangle((0.22+(0.06*k), 0.08), 0.06, 0.08, edgecolor='k', facecolor='white', lw=1.3)
+                plt.text(x=0.708-(0.06*k), y=0.102, s=f'{values_sorted[k+31]}', fontsize=10, color='darkslategrey')
                 ax.add_patch(rectbot)
             for m in range(9):
-                recttop = patches.Rectangle((0.22+(0.06*m), 0.88), 0.06, 0.08, edgecolor='k', facecolor='white')
-                plt.text(x=0.23+(0.06*m), y=0.9, s=f'{values_sorted[m+11]}', fontsize=10, color='darkslategrey')
+                recttop = patches.Rectangle((0.22+(0.06*m), 0.88), 0.06, 0.08, edgecolor='k', facecolor='white', lw=1.3)
+                plt.text(x=0.228+(0.06*m), y=0.902, s=f'{values_sorted[m+11]}', fontsize=10, color='darkslategrey')
                 ax.add_patch(recttop)
                 
             plt.text(.05, .1, 'Start', fontsize=10, color='k')
