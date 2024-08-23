@@ -15,10 +15,10 @@ class Chips:
         self.k=k
         self.n=n
     
-    def fun(self, n = 1000):
+    def fun(self, it = 1000):
         ausgabe = 0
         defekt = []
-        for i in range(n):
+        for i in range(it):
             stop = False
             for j in range(self.k):
                 defekt.append(rdm.choice(range(1,self.n+1)))
@@ -30,7 +30,7 @@ class Chips:
                 if stop == True:
                     break
             defekt = []
-        return(ausgabe)
+        return(ausgabe/it)
         
         
         

@@ -6,7 +6,7 @@ Created on Thu Aug 22 11:40:49 2024
 """
 
 #Problem 2: gerade Fib nummern
-from math import sqrt
+import math 
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
@@ -18,9 +18,9 @@ class Fibonacci:
         self.startzahl = startzahl
     
     def fun(self, plotten = True):
-        fi = round((1.6180339887**(self.startzahl+1)-(1.6180339887)**-(self.startzahl+1))/sqrt(5))
+        fi = round((1.6180339887**(self.startzahl+1)-(1.6180339887)**-(self.startzahl+1))/np.sqrt(5))
         ausgabe = list()
-        fibefore = round((1.6180339887**(self.startzahl)-(1.6180339887)**-(self.startzahl))/sqrt(5))
+        fibefore = round((1.6180339887**(self.startzahl)-(1.6180339887)**-(self.startzahl))/np.sqrt(5))
         while fi < self.maximal:
             if fi % 2 == 0:
                 ausgabe.append(1)
@@ -38,13 +38,13 @@ class Fibonacci:
             })
             # plot data frame
             colors = ["firebrick" if b == 1 else "teal" for b in ausgabe]
-            ax = sns.barplot(data=df, x="x", y="y", palette=colors) 
+            ax = sns.barplot(data=df, x="x", y="y", palette=colors, hue= "x", legend=False) 
             plt.xlabel("Index ab Startzahl")
             plt.ylabel("Kumulierte Anzahl gerader Zahlen")
             plt.title("Verteilung der geraden Fibonacci-Zahlen")
-            ticks = range(0, len(ausgabe), 2)
+            ticks = range(0, len(ausgabe), math.ceil(len(ausgabe)/40))
             ax.set_xticks(ticks)
             plt.show()
             
-test = Fibonacci(40000000)
+test = Fibonacci()
 test.fun()
