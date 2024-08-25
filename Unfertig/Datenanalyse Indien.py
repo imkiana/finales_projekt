@@ -13,4 +13,5 @@ import matplotlib.pyplot as plt
 df = pd.read_csv(r"D:\github_repos\finales_projekt\Data\Economy_Productivity_SD_India.csv")
 df2 = pd.read_csv(r"D:\github_repos\finales_projekt\Data\GDP_Sector_Income_2019_2023_30Cities.csv")
 
-plt.hist(df2)
+#plt.hist(df2)
+df[1]
