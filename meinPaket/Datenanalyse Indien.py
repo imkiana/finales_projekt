@@ -10,6 +10,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 #import seaborn as sns
 from statsmodels.graphics.mosaicplot import mosaic
+#import numpy as np
+import itertools as it
 
 
 df = pd.read_csv(r"D:\github_repos\finales_projekt\meinPaket\Data\Economy_Productivity_SD_India.csv")
@@ -86,8 +88,16 @@ class Datenanalyse():
         dfplot['Rel_GDP'] = dfplot['GDP'] / total_gdp
         self.mosaic_plot(dfplot)
         
+    def check_and_adjust_values(self, value1, value2): #100% chatgpt
+        difference_percentage = abs(value1 - value2) / value1 * 100
+        if difference_percentage <= 5:
+            return True
+        else:
+            return False
         
-    def plotDevelopment(self,anfang=1,ende=5): #1-30
+    def plotDevelopment(self): #1-30
+        anfang=self.X
+        ende=self.N
         städte = df[df["Year"]==2020].iloc[anfang-1:ende,0] #anzahl städte + alle infos #bereinigt nur städte
         
         plt.figure()
@@ -97,24 +107,34 @@ class Datenanalyse():
             aktuelleStadt = df[df["City"]==städte.iloc[i]] #alle infos der stadt
             aktuelleStadt = aktuelleStadt.iloc[:,self.plotNummer+1].reset_index(drop=True) #nur die infos fürs gewollte plot auswählen
             plt.plot(aktuelleStadt, label=städte.iloc[i])
-            y_ticks.append(aktuelleStadt.iloc[0])
-            y_labels.append(städte.iloc[i])
+            y_ticks.append(aktuelleStadt.iloc[-1]) #pos für ticks holen
+            y_labels.append(städte.iloc[i]) #label für ticks holen
+        titel = pd.DataFrame(aktuelleStadt).columns.tolist() #pandas series warum auch immer
         plt.xticks(ticks=range(6),labels=[2019,2020,2021,2022,2023,2024])
         ax = plt.gca()
-        
+    
         for tick_position in range(6):
             ax.axvline(x=tick_position, color='gray', linestyle='--', linewidth=0.7)
-        prop_cycle = plt.rcParams['axes.prop_cycle']
+            
+        ax_right = ax.twinx() #2te achse rechts hinzufügen
+        ax_right.set_ylim(ax.get_ylim())
+        for i in list(it.combinations(range(len(y_ticks)), 2)):
+            überlagerung = self.check_and_adjust_values(y_ticks[i[0]],y_ticks[i[1]])
+            if überlagerung == True:
+                idkhowtoname = (0, 1) if y_ticks[i[0]] > y_ticks[i[1]] else (1, 0)
+                y_ticks[i[idkhowtoname[0]]] = y_ticks[i[idkhowtoname[0]]] * 1.01  # Erhöhe um 1%
+                y_ticks[i[idkhowtoname[1]]] = y_ticks[i[idkhowtoname[1]]] * 0.99  # Verringere um 1%
+        ax_right.set_yticks(y_ticks)
+        ax_right.set_yticklabels(y_labels)
+        
+        prop_cycle = plt.rcParams['axes.prop_cycle'] #farben der aktuellen plt farbliste holen
         colors = prop_cycle.by_key()['color']
-        plt.yticks(ticks=y_ticks, labels=y_labels)
         
-        ax = plt.gca()
-        
-        for tick_label, color in zip(ax.get_yticklabels(), colors[anfang-1:ende]):
+        for tick_label, color in zip(ax_right.get_yticklabels(), colors[anfang - 1:ende]): #tick label färben
             tick_label.set_color(color)
-        
+        plt.title(str(titel).replace('[', '').replace(']', '').replace("'", '')) #titel anbringen
         plt.show()                  
         
-test = Datenanalyse(plotNummer=1) #1-7
-#test.plotSectors()
+test = Datenanalyse(N=5,plotNummer=7) #num 1-7
+test.plotSectors()
 test.plotDevelopment()

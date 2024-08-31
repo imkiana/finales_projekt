@@ -15,4 +15,4 @@ def f1(n):
        ausgabe.append([b if b % 3 == 0 else b if b % 5 == 0 else 0 for b in [i+int(n/abs(n))]])
     return(np.cumsum(ausgabe)[abs(n)-2]) # sum hat nicht funktioniert
     
-f(100)
+f1(100)
