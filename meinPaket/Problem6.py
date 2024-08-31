@@ -12,16 +12,16 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-def f(n = 100, plotten = True):
+def f6(n = 100, plotten = True):
     '''Berechnet die Differenz der Summe der Quadrate der Zahl n und dem Quadrat der Summe und Plottet dies von 1 bis n'''
     plot = []
     for j in range(1,n+1):
-        a=list(range(j+1))
-        b=sum(range(j+1))**2
+        a=list(range(j+1)) #Fall: n²+(n-1)²+(n-2)²
+        b=sum(range(j+1))**2 #Fall: (n+n-1+n-2...n>=0)²
         for i in range(len(a)):
             a[i] = a[i]**2
         plot.append(abs(b-sum(a)))
-    print(f"Für n={j} die Differenz ist {abs(b-sum(a))}")
+    print(f"Für n={j} die Differenz ist {abs(b-sum(a))}") #Ausgabe
     if plotten == True:
         df = pd.DataFrame({
             "x": range(1,len(plot)+1),
