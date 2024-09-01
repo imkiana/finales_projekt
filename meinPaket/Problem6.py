@@ -22,7 +22,7 @@ def f6(n = 100, plotten = True):
             a[i] = a[i]**2
         plot.append(abs(b-sum(a)))
     print(f"Für n={j} die Differenz ist {abs(b-sum(a))}") #Ausgabe
-    if plotten == True:
+    if plotten == True: #Plotten
         df = pd.DataFrame({
             "x": range(1,len(plot)+1),
             "y": plot
@@ -34,5 +34,5 @@ def f6(n = 100, plotten = True):
         ticks = range(0, len(plot), math.ceil(len(plot)/20))
         ax.set_xticks(ticks)
         plt.show()
-    
-f(5)
+        
+f6()

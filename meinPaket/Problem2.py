@@ -13,13 +13,13 @@ import pandas as pd
 import seaborn as sns
 
 class Fibonacci:
-    '''kein Kommentar'''
+    '''Klasse zur darstellung gerade Fibonacci Zahlen'''
     def __init__(self, maximal=4_000_000, startzahl=1):
         self.maximal = maximal
         self.startzahl = startzahl
     
     def fun(self, plotten = True):
-        '''Zählt alle geraden Fibonacci Zahlen von Fibonacci Zahl n = startzahl bis maximal'''
+        '''Summiert alle geraden Fibonacci Zahlen von Fibonacci Zahl n = startzahl bis maximal'''
         fi = round((1.6180339887**(self.startzahl+1)-(1.6180339887)**-(self.startzahl+1))/np.sqrt(5)) #erstellt start fibonacci nummer
         ausgabe = list()
         fibefore = round((1.6180339887**(self.startzahl)-(1.6180339887)**-(self.startzahl))/np.sqrt(5)) #vorherige fibonacci zahl der startzahl um die die reihe effizient zu erweitern
@@ -46,5 +46,5 @@ class Fibonacci:
             ax.set_xticks(ticks)
             plt.show()
             
-test = Fibonacci()
-test.fun()
+#test = Fibonacci()
+#test.fun()

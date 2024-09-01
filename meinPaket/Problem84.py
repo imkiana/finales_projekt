@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 
 class Monopoly:
-    '''hiermit könnt ihr Objekte für Monopoly erstellen und das Spiel simuliert.'''
+    '''Klasse zur Simulation und darstellung eines Monopolyspiels'''
     def __init__(self, dice_dn=4):
         self.dice_dn = dice_dn
         
@@ -60,8 +60,8 @@ class Monopoly:
         fürausgabeval = list(fürausgabeval)
         for k in range(3):
             fürausgabeval[k] = fürausgabeval[k]/n*1000//1/10
-        print(f"Die Felder {fürausgabenum} haben mit {fürausgabeval}% die höchsten Wahrscheinlichkeiten.\nDaher lautet die Antwort auf das Problem: {lösung}")
-        if plotten == True:
+        print(f"Die Felder {fürausgabenum} haben mit {fürausgabeval}% die höchsten Wahrscheinlichkeiten.\nDaher lautet die Antwort auf das Problem: {lösung}") #Ausgabe
+        if plotten == True: #Plotten
             combined = list(zip(feldernum, values))
             combined.sort()
             feldernum_sorted, values_sorted = zip(*combined)
@@ -69,10 +69,10 @@ class Monopoly:
             values_sorted = list(values_sorted)
             
             for j in range(40):
-                values_sorted[j] = values_sorted[j]/n*1000//1/10 #verbessern
+                values_sorted[j] = values_sorted[j]/n*1000//1/10
                 
-            fig, ax = plt.subplots() #was macht das 
-            for i in range(11):
+            fig, ax = plt.subplots() 
+            for i in range(11): #Quadrate plotten fürs Feld
                 rectleft = patches.Rectangle((0.16, 0.08*(i+1)), 0.06, 0.08, edgecolor='k', facecolor='gainsboro', lw=1.3)
                 plt.text(y=.102+(0.08*i), x=.168, s=f'{values_sorted[i]}', fontsize=10, color='darkslategrey')
                 ax.add_patch(rectleft)
@@ -98,8 +98,8 @@ class Monopoly:
         
         
         
-test2 = Monopoly()
-test2.fun()
+#test2 = Monopoly()
+#test2.fun()
 
 
 
