@@ -55,7 +55,7 @@ class Datenanalyse():
         N = self.N
         
         
-        dfsummen = df2.groupby("City").agg({
+        dfsummen = df2.groupby("City").agg({ #spalten in passenden form bringen und alle jahre zusammenfassen
             "GDP (in billion $)": "sum",
             "Industry (%)": "mean",
             "Agriculture (%)": "mean",
@@ -63,7 +63,7 @@ class Datenanalyse():
             "Technology (%)": "mean"
         }).reset_index()
         
-        dfsummen.columns = [
+        dfsummen.columns = [ #spalten umbenennen für später
             "City",
             "GDP",
             "Industry",      
@@ -132,7 +132,7 @@ class Datenanalyse():
         
         for tick_label, color in zip(ax_right.get_yticklabels(), colors[anfang - 1:ende]): #tick label färben
             tick_label.set_color(color)
-        plt.title(str(titel).replace('[', '').replace(']', '').replace("'", '')) #titel anbringen
+        plt.title(str(titel).replace('[', '').replace(']', '').replace("'", '')) #titel anbringen entfernt unnötige [] und '
         plt.show()                  
         
 #test = Datenanalyse(N=5) #num 1-7
