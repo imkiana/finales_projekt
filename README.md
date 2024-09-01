@@ -15,15 +15,15 @@ activate your env eg. conda activate
 
 ## (3) Usage
 
-import meinPaket
-#Problem 1
-meinPaket.Problem1.f1()
+import meinPaket<br>
+#Problem 1<br>
+meinPaket.Problem1.f1()<br><br>
 
-#Problem 2
-meinPaket.Problem2.f2()
+#Problem 2<br>
+meinPaket.Problem2.f2()<br>
 
-#Problem 6
-meinPaket.Problem6.f6()
+#Problem 6<br>
+meinPaket.Problem6.f6()<br>
 
 
 ## (4) License
