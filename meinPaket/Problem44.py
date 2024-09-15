@@ -12,9 +12,9 @@ def f44():
     '''Löst das Problem 44 von Project Euler'''
     num = []
     while True:
-        num.append((len(num)+1)*(3*(len(num)+1)-1)/2)
+        num.append((len(num)+1)*(3*(len(num)+1)-1)/2) #Nummer der Reihe zu num hinzufügen
         if len(num)>3: #2394
-            combination = list(itertools.combinations(num, 2))
+            combination = list(itertools.combinations(num, 2)) #alle kombinationen für plus und minus erstellen
             for i in range(len(combination)):
                 plus = combination[i][0]+combination[i][1]
                 minus = abs(combination[i][0]-combination[i][1])
